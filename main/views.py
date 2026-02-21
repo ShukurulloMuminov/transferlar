@@ -16,6 +16,14 @@ class ClubsView(views.View):
     def get(self, request):
 
         clubs = Club.objects.all()
+
+        country = request.GET.get('country')
+
+        if country:
+             clubs = clubs.filter(country__name=country)
+
+
+
         context = {'clubs': clubs}
 
         return render(request, 'clubs.html', context)
@@ -70,3 +78,8 @@ class Player_U20View(views.View):
 class TryoutsView(views.View):
     def get(self, request):
         return render(request, 'tryouts.html')
+
+
+class AboutView(views.View):
+    def get(self, request):
+        return render(request, 'about.html')

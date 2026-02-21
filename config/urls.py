@@ -17,6 +17,7 @@ urlpatterns = [
     path('player_u20/', Player_U20View.as_view(), name='player_u20'),
     path('tryouts/', TryoutsView.as_view(), name='tryouts'),
     path('clubs/<int:pk>/', ClubDetailView.as_view(), name='club_detail'),
+    path('about/', AboutView.as_view(), name='about'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
